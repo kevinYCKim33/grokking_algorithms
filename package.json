@@ -1,0 +1,11 @@
+{
+  "name": "grokking_algorithms",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github-personal:kevinYCKim33/grokking_algorithms.git",
+  "author": "Kevin Y. Kim <kevinyckim33@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "eslint": "^7.11.0"
+  }
+}

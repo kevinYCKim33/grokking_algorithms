@@ -1,42 +1,37 @@
-const binarySearch = (arr, num) => {
-  let lowBound = 0;
-  let highBound = arr.length - 1;
+// Selection Sort - O(n^2)
+// Parameter:
+//  1. random array
 
-  while (lowBound <= highBound) {
-    let mid = Math.floor((lowBound + highBound) / 2);
-    let guess = arr[mid];
+// 1. Finds the smallest value in an array
+const findSmallestIndex = (array) => {
+  let smallestElement = array[0]; // Stores the smallest value
+  let smallestIndex = 0; // Stores the index of the smallest value
 
-    if (guess === num) {
-      return mid;
-    }
-
-    if (guess > num) {
-      highBound = mid - 1; // cause it can't be mid
-    }
-
-    if (guess < num) {
-      lowBound = mid + 1; // cause it can't be mid
+  for (let i = 1; i < array.length; i++) {
+    if (array[i] < smallestElement) {
+      smallestElement = array[i];
+      smallestIndex = i;
     }
   }
 
-  return null;
-
-  // get the size of the array
-
-  // start at the middle
-
-  // low index should start at 0
-
-  // high index should start at end
-
-  // i'm tempted to check if any of the low or high bounds are right right away...
-
-  // when should this keep going?
-
-  //
+  return smallestIndex;
 };
 
-const myList = [1, 3, 5, 7, 9];
+// 2. Sorts the array
+const selectionSort = (array) => {
+  const sortedArray = [];
+  const length = array.length;
 
-console.log(binarySearch(myList, 3)); // 1
-console.log(binarySearch(myList, -1)); // null
+  for (let i = 0; i < length; i++) {
+    debugger;
+    // Finds the smallest element in the given array
+    const smallestIndex = findSmallestIndex(array);
+    // Adds the smallest element to new array
+    sortedArray.push(array.splice(smallestIndex, 1)[0]);
+  }
+
+  return sortedArray;
+};
+
+console.log("its working!");
+console.log(selectionSort([5, 3, 6, 2, 10])); // [2, 3, 5, 6, 10]

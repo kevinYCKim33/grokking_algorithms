@@ -1,9 +1,8 @@
-// Write out the code for the earlier sum function.
+const count = (list) => {
+  debugger;
+  if (list.length === 0) return 0;
 
-const sum = (arr) => {
-  if (!arr.length) return 0;
-
-  return arr[0] + sum(arr.slice(1)); //slicing is pretty [1,2,3,4,5].slice(7) // => [] // TIL slicing outside of array range gives back an empty array
+  return 1 + count(list.slice(1));
 };
 
-console.log(sum([3, 7, 5])); // 15
+console.log(count([1, 2, 3, 4, 5, 6]));

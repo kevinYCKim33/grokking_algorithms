@@ -1,37 +1,9 @@
-// Selection Sort - O(n^2)
-// Parameter:
-//  1. random array
+// Write out the code for the earlier sum function.
 
-// 1. Finds the smallest value in an array
-const findSmallestIndex = (array) => {
-  let smallestElement = array[0]; // Stores the smallest value
-  let smallestIndex = 0; // Stores the index of the smallest value
+const sum = (arr) => {
+  if (!arr.length) return 0;
 
-  for (let i = 1; i < array.length; i++) {
-    if (array[i] < smallestElement) {
-      smallestElement = array[i];
-      smallestIndex = i;
-    }
-  }
-
-  return smallestIndex;
+  return arr[0] + sum(arr.slice(1)); //slicing is pretty [1,2,3,4,5].slice(7) // => [] // TIL slicing outside of array range gives back an empty array
 };
 
-// 2. Sorts the array
-const selectionSort = (array) => {
-  const sortedArray = [];
-  const length = array.length;
-
-  for (let i = 0; i < length; i++) {
-    debugger;
-    // Finds the smallest element in the given array
-    const smallestIndex = findSmallestIndex(array);
-    // Adds the smallest element to new array
-    sortedArray.push(array.splice(smallestIndex, 1)[0]);
-  }
-
-  return sortedArray;
-};
-
-console.log("its working!");
-console.log(selectionSort([5, 3, 6, 2, 10])); // [2, 3, 5, 6, 10]
+console.log(sum([3, 7, 5])); // 15

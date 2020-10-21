@@ -10,13 +10,13 @@ const countdown = i => {
 
 countdown(5);
 
+// MY ATTEPT
+// const countdown = (num) => {
+//   console.log(num)
 
-const countdown = (num) => {
-  console.log(num)
+//   if (num <= 0) return
 
-  if (num <= 0) return
+//   return countdown(num - 1)
+// }
 
-  return countdown(num - 1)
-}
-
-countdown(5)
+// countdown(5)

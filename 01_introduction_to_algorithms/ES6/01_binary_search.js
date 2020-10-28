@@ -48,3 +48,39 @@ const kevinBinarySearch = (arr, num) => {
   }
 
   return null;
+
+/*
+// binarySearch rundown edition
+// const array = [3, 6, 12, 55, 120, 190, 258, 357, 1028]
+// binarySearch(array, 258)
+
+const binarySearch = (list, item) => {
+  let lowIndex = 0;
+  let highIndex = list.length - 1; // 8
+
+  while (lowIndex <= highIndex) {
+    let midIndex = Math.floor((highIndex + lowIndex) / 2); // 4
+    let midIndexValue = list[midIndex]; // list[4] = 120
+
+    // is 120 equal to my item 258?
+    if (midIndexValue === item) {
+      return midIndex;
+    }
+    // skipping the above automatically slashes out 120
+
+    // is 120 greater than my item 258?
+    if (midIndexValue > item) {
+      highIndex = midIndex - 1;
+    } 
+    // is 120 less than my item 258?
+    else {
+      // so the lowIndex is now one above the midpoint
+      // it doesn't have to be the new endpoint
+      lowIndex = midIndex + 1;
+    
+    }
+  }
+
+  return null;
+};
+*/

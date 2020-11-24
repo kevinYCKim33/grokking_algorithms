@@ -1,41 +1,43 @@
-const quickSort = (array) => {
-  if (array.length < 2) {
-    return array;
-  }
-  const pivot = array[0];
-  const keysAreLessPivot = array.slice(1).filter((key) => key <= pivot); // this seems inefficient runthrough
-  const keysAreMorePivot = array.slice(1).filter((key) => key > pivot); // you are running through it twice??
-  return [
-    ...quickSort(keysAreLessPivot),
-    pivot,
-    ...quickSort(keysAreMorePivot),
-  ];
-};
+console.log("hello");
 
-console.log(quickSort([10, 5, 2, 3])); // [2, 3, 5, 10]
+const graph = {};
 
-const kevinQuickSort = (arr) => {
-  if (arr.length < 2) return arr;
+graph.you = ["alice", "bob", "claire"];
 
-  const pivot = arr[0];
-  const slicedArr = arr.slice(1);
-  const smallerThanOrEqualPivotArr = [];
-  const largerThanPivotArr = [];
+graph.alice = ["peggy"];
+graph.bob = ["anuj", "peggy"];
+graph.claire = ["thom", "jonny"];
 
-  // mine seems a lot more readable!
-  for (elem of slicedArr) {
-    if (elem <= pivot) {
-      smallerThanOrEqualPivotArr.push(elem);
+graph.anuj = [];
+graph.peggy = [];
+graph.thom = [];
+graph.jonny = [];
+
+const isMangoSeller = (name) => name[name.length - 1] === "m";
+
+const search = (person) => {
+  debugger;
+  // check if this person is a mango seller
+  const listOfPeopleChecked = [];
+  let listOfPeopleToCheck = [person];
+
+  while (listOfPeopleToCheck.length) {
+    const thePerson = listOfPeopleToCheck.shift();
+    if (listOfPeopleChecked.includes(thePerson)) {
+      continue;
+    } else if (isMangoSeller(thePerson)) {
+      console.log(`${thePerson} is a mango seller!`);
+      return true;
     } else {
-      largerThanPivotArr.push(elem);
+      listOfPeopleChecked.push(thePerson);
+      listOfPeopleToCheck = listOfPeopleToCheck.concat(graph[thePerson]);
     }
   }
 
-  return [
-    ...kevinQuickSort(smallerThanOrEqualPivotArr),
-    pivot,
-    ...kevinQuickSort(largerThanPivotArr),
-  ];
+  console.log("no mango sellers in your network");
+  return false;
+
+  // there needs to be a list of people you checked
 };
 
-console.log(kevinQuickSort([8, 6, 7, 5, 3, 0, 9])); // [0, 3, 5, 6, 7, 8, 9]
+search("you"); // 'thom is a mango seller!'

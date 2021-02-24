@@ -1,5 +1,5 @@
 // You pass an array in, and it gets converted to a set.
-let statesNeeded = new Set(['mt', 'wa', 'or', 'id', 'nv', 'ut', 'ca', 'az']);
+let statesNeeded = new Set(['mt', 'wa', 'or', 'id', 'nv', 'ut', 'ca', 'az']); // did not know this...
 
 const stations = {};
 stations.kone = new Set(['id', 'nv', 'ut']);
@@ -8,10 +8,11 @@ stations.kthree = new Set(['or', 'nv', 'ca']);
 stations.kfour = new Set(['nv', 'ut']);
 stations.kfive = new Set(['ca', 'az']);
 
-const finalStations = new Set();
+
+const finalStations = new Set(); // this one is a bit curious to me.  
 
 
-while (statesNeeded.size) {
+while (statesNeeded.size) { // sets go by size and not length
   let bestStation = null;
   let statesCovered = new Set();
   Object.keys(stations).forEach((station) => {

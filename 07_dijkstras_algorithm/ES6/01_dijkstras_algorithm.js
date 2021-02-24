@@ -27,7 +27,7 @@ parents.fin = null;
 
 let processed = [];
 
-
+// why itCosts??
 const findLowestCostNode = (itCosts) => {
   let lowestCost = Infinity;
   let lowestCostNode = null;
